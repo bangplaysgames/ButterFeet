@@ -39,7 +39,7 @@ Original License as follows:
 
 addon.author    = 'banggugyangu';
 addon.name      = 'ButterFeet';
-addon.version   = '0.0.1';
+addon.version   = '1.0.0';
 
 require 'common';
 require 'ffi';
@@ -58,16 +58,16 @@ eadjustment = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 };
 
 --OnLoad
 ashita.events.register('load', 'load_cb', function ()
-    
-    --[[if (JADELAY.pointer == 0) then;
+
+    if (JADELAY.pointer == nil) then;
         print('ButterFeet cannot find the correct memory address for JA lock');
         print(JADELAY);
         return;
     end
-    if (ENDELAY.pointer == 0) then;
+    if (ENDELAY.pointer == nil) then;
         print('ButterFeet cannot find the correct memory address for Engagement Lock');
         return;
-    end]]
+    end
 
     --Backup of original values
     JADELAY.backup = ashita.memory.read_array(JADELAY.pointer, 7);
